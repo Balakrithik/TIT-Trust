@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story</title>
+    <style>
+        :root {
+            --primary: #6b46c1;
+            --secondary: #f97316;
+            --background: #ffffff;
+            --text: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .npd-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .npd-hero-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+        }
+
+        .npd-hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 600px;
+        }
+
+        /* Container for the image */
+        .npd-hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        /* Background image */
+        .npd-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: image-swap 10s infinite alternate;
+        }
+
+        /* Animation for switching images */
+        @keyframes image-swap {
+            0% {
+                background-image: url('/images/temple.jpg');
+                opacity: 1;
+            }
+            50% {
+                background-image: url('/images/temple_hover.jpg');
+                opacity: 1;
+            }
+            100% {
+                background-image: url('/images/temple.jpg');
+                opacity: 1;
+            }
+        }
+
+        .npd-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .npd-card {
+            padding: 2rem;
+            border-radius: 1rem;
+            background: var(--background);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .npd-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .npd-card::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(107, 70, 193, 0.1);
+            top: -75px;
+            right: -75px;
+            z-index: 0;
+        }
+
+        .npd-card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .npd-card-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .npd-card-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .npd-card-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .npd-card-link::after {
+            content: '→';
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .npd-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .npd-container {
+                padding: 2rem 1rem;
+            }
+
+            .npd-hero-title-wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .npd-hero-image-wrapper {
+                max-width: 100%;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="npd-container">
+        <div class="npd-hero-title-wrapper">
+            <h1 class="npd-hero-title">Flexible and affordable, built for teams of today</h1>
+            <div class="npd-hero-image-wrapper">
+                <div class="npd-hero-image"></div>
+            </div>
+        </div>
+        
+        <div class="npd-cards-grid">
+            <div class="npd-card">
+                <h2 class="npd-card-title">Startups</h2>
+                <p class="npd-card-description">Simple and flexible benefits built for fast moving teams</p>
+                <a href="#" class="npd-card-link" aria-label="Learn more about Startups"></a>
+            </div>
+
+            <div class="npd-card">
+                <h2 class="npd-card-title">Mid-sized</h2>
+                <p class="npd-card-description">A fully integrated benefits platform to control cost, eliminate finance & HR busywork, and empower teams</p>
+                <a href="#" class="npd-card-link" aria-label="Learn more about Mid-sized companies"></a>
+            </div>
+
+            <div class="npd-card">
+                <h2 class="npd-card-title">Developers</h2>
+                <p class="npd-card-description">Insurance and Retirement embedded into your platform</p>
+                <a href="#" class="npd-card-link" aria-label="Learn more about Developer solutions"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
