@@ -16,6 +16,9 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Prata&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Prata&display=swap"
@@ -26,6 +29,7 @@
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="sample.css">
 
   <link rel="stylesheet" href="css/aos.css">
 
@@ -42,7 +46,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="images/logo.png" alt="Welfare Logo" style="height: 76px;">
@@ -65,7 +69,42 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
+  
+  <div class="cd-header">
+		<div class="header-wrapper">
+      <!-- <a href="#" class="contact-us-btn">Contact Us</a> -->
+			<div class="logo-wrap">
+				<a href="#">
+					<img src="/images/logo.png" alt="Logo" style="height: 72px; width: auto;">
+				</a>
+			</div>
+<div class="shivashiva">
+  <a href="#">
+    <img src="/images/shiva shiva.png" alt="Logo" style="height: 32px; width: auto;">
+  </a>
+</div>
+			<div class="nav-but-wrap">
+				<div class="menu-icon">
+					<span class="menu-icon__line menu-icon__line-left"></span>
+					<span class="menu-icon__line"></span>
+					<span class="menu-icon__line menu-icon__line-right"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="nav">
+		<div class="nav__content">
+			<ul class="nav__list">
+				<li class="nav__list-item active-nav"><a href="#home">Home</a></li>
+				<li class="nav__list-item"><a href="#our-story">Our Story</a></li>
+				<li class="nav__list-item"><a href="#our-projects">Projects</a></li>
+				<li class="nav__list-item"><a href="#donate">Donate</a></li>
+				<li class="nav__list-item"><a href="#Contact">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
   <!-- END nav -->
 
   <!-- <div class="hero-wrap" style="background-image: url('images/temple\ 2.jpg');" data-stellar-background-ratio="0.5">
@@ -99,7 +138,7 @@
           <h6 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="font-weight: 200;">
             Committed to the restoration, construction, and preservation of India's sacred temples.</h6>
           <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-            <a href="#" class="Donatebutton">
+            <a href="donate.html" class="Donatebutton">
               <span class="fa fa-donate mr-2"></span>Donate Now
             </a>
           </p>
@@ -140,7 +179,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 125vh;
+      height: 580px;
       object-fit: cover;
     }
 
@@ -149,7 +188,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      /* height: 580px; */
       background-color: rgba(0, 0, 0, 0.4);
     }
 
@@ -244,10 +283,8 @@
     /* Adjustments for Larger Screens (Desktop) */
     @media screen and (min-width: 1024px) {
       #hero-video {
-        top: -52px;
-        /* Shift upwards */
-        height: 125%;
-        /* Maintain full coverage */
+        top: 38px;
+        height: 684px;
       }
     }
 
@@ -259,6 +296,8 @@
         height: 150vh;
         /* Adjust to fit the viewport height */
       }
+      .overlay {
+        height: 100%;}
 
       .hero-wrap {
         position: relative;
@@ -485,6 +524,7 @@
     </div>
   </section> -->
 
+  
   <div class="npd-container">
     <div class="npd-hero-title-wrapper">
         <h1 class="npd-hero-title">The TUT Trust: Dedicated to India's Sacred Sites</h1>
@@ -534,50 +574,20 @@
         </div>
       </section>
       
-      <!-- <div class="row">
-        <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-          <div class="staff">
-            <div class="d-flex mb-4">
-              <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-              <div class="info ml-4">
-                <h3><a href="#">Shiva Kumar R</a></h3>
-                <span class="position">Donated Just now</span>
-                <div class="text">
-                  <p>Donated <span>Rs.20,000</span> for <a href="#">Granite Stones</a></p>
-                </div>
-              </div>
-            </div>
+      <section class="donate-section" id="donate">
+        <div class="donate-container">
+          <div class="donate-content">
+            <h2 class="donate-title">Support Our Temple</h2>
+            <p class="donate-description">Your generous donations help us build and maintain temples, preserving the cultural and spiritual heritage of our community. Every contribution, big or small, makes a difference. Join us in our mission to create sacred spaces for worship and peace.
+            </p>
+            <a href="donate.html" class="donate-btn">Make Donation</a>
+          </div>
+          <div class="donate-illustration">
+            <img src="images/vecteezy_fund-raising-and-money-donation-illustration_6901910.jpg" alt="Donation illustration" />
           </div>
         </div>
-        <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-          <div class="staff">
-            <div class="d-flex mb-4">
-              <div class="img" style="background-image: url(images/person_2.jpg);"></div>
-              <div class="info ml-4">
-                <h3><a href="#">Balamurugan P</a></h3>
-                <span class="position">Donated Just now</span>
-                <div class="text">
-                  <p>Donated <span>Rs.50,000</span> for <a href="#">Food Seva</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-          <div class="staff">
-            <div class="d-flex mb-4">
-              <div class="img" style="background-image: url(images/person_3.jpg);"></div>
-              <div class="info ml-4">
-                <h3><a href="#">Parameshwaran S</a></h3>
-                <span class="position">Donated Just now</span>
-                <div class="text">
-                  <p>Donated <span>Rs.1,00,000</span> for <a href="#">Oil seva</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      </section>
+      
     </div>
   </section>
 
@@ -866,7 +876,12 @@
             <h2 class="ftco-heading-2">Have a Questions?</h2>
             <div class="block-23 mb-3">
               <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">Trichy, Tamil Nadu</span></li>
+                <li><span class="icon icon-map-marker"></span><span class="text"><address><span class="trustname" style="font-weight: 900;">TUTT TRUST</span><br>
+                  No.6/195 Lingam Nagar Main Road,
+                  Kulumani Road,
+                  Maruthandakuruchi (Po),
+                  Trichy 620 102
+                  Tamilnadu.</address></span></li>
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 93603 33993</span></a></li>
                 <li><a href="#"><span class="icon icon-envelope"></span><span
                       class="text">tuttrusttrichy@gmail.com</span></a></li>
@@ -917,7 +932,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script>
+  <!-- <script>
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function (e) {
         if (this.hash !== '') {
@@ -932,7 +947,7 @@
         }
       });
     });
-  </script>
+  </script> -->
 </body>
 
 </html>

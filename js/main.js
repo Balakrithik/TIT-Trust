@@ -287,3 +287,58 @@
 
 })(jQuery);
 
+
+// Select all nav list items
+const navItems = document.querySelectorAll('.nav__list-item');
+
+// Add click event listener to each nav list item
+navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        // Prevent default action for anchor links
+        e.preventDefault();
+        
+        // Get the target section ID from the href attribute
+        const targetId = item.querySelector('a').getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+            // Smooth scroll to the target section
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Remove the 'nav-active' class from body to close the nav
+        document.body.classList.remove('nav-active');
+    });
+});
+
+// Select the menu icon and body element
+const menuIcon = document.querySelector('.menu-icon');
+const body = document.body;
+
+// Add click event to toggle the 'nav-active' class on the body
+menuIcon.addEventListener('click', () => {
+    body.classList.toggle('nav-active');
+});
+
+let lastScrollTop = 0; // Keeps track of the last scroll position
+const header = document.querySelector('.cd-header');
+
+// Listen to the scroll event
+window.addEventListener('scroll', () => {
+  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Check if we are scrolling down
+  if (currentScroll > lastScrollTop) {
+    // Scroll down: add the 'header-hidden' class to hide the header
+    header.classList.add('header-hidden');
+  } else {
+    // Scroll up: remove the 'header-hidden' class to show the header
+    header.classList.remove('header-hidden');
+  }
+  
+  // Update the last scroll position
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
