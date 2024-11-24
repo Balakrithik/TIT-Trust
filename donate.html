@@ -272,24 +272,162 @@
     		</div>
     		<div class="col-md-6 volunteer pl-md-5 ftco-animate">
     			<h3 class="mb-3">Be a volunteer</h3>
-    			<form action="#" class="volunter-form">
+    			<form action="#" class="volunter-form needs-validation" novalidate>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Your Name" 
+                id="name" 
+                required>
+              <div class="invalid-feedback">
+                Please enter your name.
+              </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Email">
+              <input 
+                type="email" 
+                class="form-control" 
+                placeholder="Your Email" 
+                id="email" 
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                required>
+              <div class="invalid-feedback">
+                Please enter a valid email address (e.g., example@domain.com).
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Your Number" 
+                id="number" 
+                pattern="^\d{10}$" 
+                required>
+              <div class="invalid-feedback">
+                Please enter a valid 10-digit phone number.
+              </div>
             </div>
             <div class="form-group">
-              <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+              <textarea 
+                cols="30" 
+                rows="3" 
+                class="form-control" 
+                placeholder="Message" 
+                id="message" 
+                required></textarea>
+              <div class="invalid-feedback">
+                Please enter your message.
+              </div>
             </div>
             <div class="form-group">
-              <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
+              <input 
+                type="submit" 
+                value="Send Message" 
+                class="btn btn-white py-3 px-5">
             </div>
           </form>
     		</div>    			
     		</div>
     	</div>
     </section>
+
+     <!-- form validation and data to google sheets for the donators list -->
+  <script>
+    // Add event listeners for real-time validation
+    document.addEventListener("DOMContentLoaded", () => {
+      const nameInput = document.querySelector('input[placeholder="Your Name"]');
+      const emailInput = document.querySelector('input[placeholder="Your Email"]');
+      const phoneInput = document.querySelector('input[placeholder="Your Number"]');
+      const messageInput = document.querySelector('textarea[placeholder="Message"]');
+  
+      // Validation Patterns
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const phonePattern = /^\d{10}$/;
+  
+      // Real-time validation functions
+      nameInput.addEventListener("input", () => {
+        if (!nameInput.value.trim()) {
+          nameInput.classList.add("is-invalid");
+        } else {
+          nameInput.classList.remove("is-invalid");
+        }
+      });
+  
+      emailInput.addEventListener("input", () => {
+        if (!emailPattern.test(emailInput.value.trim())) {
+          emailInput.classList.add("is-invalid");
+        } else {
+          emailInput.classList.remove("is-invalid");
+        }
+      });
+  
+      phoneInput.addEventListener("input", () => {
+        if (!phonePattern.test(phoneInput.value.trim())) {
+          phoneInput.classList.add("is-invalid");
+        } else {
+          phoneInput.classList.remove("is-invalid");
+        }
+      });
+  
+      messageInput.addEventListener("input", () => {
+        if (!messageInput.value.trim()) {
+          messageInput.classList.add("is-invalid");
+        } else {
+          messageInput.classList.remove("is-invalid");
+        }
+      });
+    });
+  
+    // Form submission handling
+    document.querySelector(".volunter-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      // Get form inputs
+      const name = document.querySelector('input[placeholder="Your Name"]').value.trim();
+      const email = document.querySelector('input[placeholder="Your Email"]').value.trim();
+      const phone = document.querySelector('input[placeholder="Your Number"]').value.trim();
+      const message = document.querySelector('textarea[placeholder="Message"]').value.trim();
+  
+      // Validate all fields before submission
+      if (!name || !email || !phone || !message) {
+        alert("Please fill in all fields correctly.");
+        return;
+      }
+  
+      // Prepare data in the required format
+      const formData = {
+        'data[Name]': name,
+        'data[Email]': email,
+        'data[Phone]': phone,
+        'data[Message]': message
+      };
+  
+      try {
+        // Send form data to Google Apps Script
+        const response = await fetch("", {
+          method: "POST",
+          body: new URLSearchParams(formData), // Encode data as URL parameters
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+  
+        const result = await response.json();
+  
+        if (result.status === "SUCCESS") {
+          alert("Your message has been successfully sent!");
+          document.querySelector(".volunter-form").reset();
+        } else {
+          alert("Something went wrong. Please try again later.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Error connecting to the server.");
+      }
+    });
+  </script>
 
     <footer class="ftco-footer ftco-section img">
       <div class="overlay"></div>
