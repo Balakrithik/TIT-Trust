@@ -7294,7 +7294,7 @@ body {
     width: 100%; }
 
 span {
-  color: #bfbfbf; }
+  color: #fff; }
 
 a {
   -webkit-transition: .3s all ease;
@@ -9355,7 +9355,7 @@ textarea.form-control {
 .npd-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 0rem 2rem;
 }
 
 .npd-hero-title-wrapper {
